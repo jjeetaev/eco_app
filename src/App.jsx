@@ -10,7 +10,7 @@ import { Leaf, Send } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('list');
-  
+
   const [trees, setTrees] = useState(() => {
     const saved = localStorage.getItem('eco_trees');
     if (saved) {
@@ -42,8 +42,8 @@ export default function App() {
               <Leaf className="w-8 h-8 text-nature-beige" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-wide">Eco-System</h1>
-              <p className="text-sm text-nature-beige/80 opacity-90 hidden sm:block">Голос Земли (памяти Э.Дж. Шукурова)</p>
+              <h1 className="text-2xl font-bold tracking-wide">Tamyr</h1>
+              <p className="text-sm text-nature-beige/80 opacity-90 hidden sm:block">Цифровая Экосистема</p>
             </div>
           </div>
         </div>
@@ -53,33 +53,31 @@ export default function App() {
       <main className="container mx-auto px-4 mt-8 max-w-6xl flex-grow">
         <EcoPulse />
         <Dashboard trees={trees} />
-        
+
         {/* Tabs */}
         <div className="flex flex-col sm:flex-row gap-4 mb-6">
-          <button 
+          <button
             onClick={() => setActiveTab('list')}
-            className={`px-6 py-3 rounded-xl font-bold flex-1 transition-all shadow-sm ${
-              activeTab === 'list' 
-              ? 'bg-nature-darkGreen text-nature-beige ring-2 ring-offset-2 ring-nature-green border-transparent' 
-              : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
-            }`}
+            className={`px-6 py-3 rounded-xl font-bold flex-1 transition-all shadow-sm ${activeTab === 'list'
+                ? 'bg-nature-darkGreen text-nature-beige ring-2 ring-offset-2 ring-nature-green border-transparent'
+                : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+              }`}
           >
             Список событий
           </button>
-          <button 
+          <button
             onClick={() => setActiveTab('map')}
-            className={`px-6 py-3 rounded-xl font-bold flex-1 transition-all shadow-sm ${
-              activeTab === 'map' 
-              ? 'bg-nature-darkGreen text-nature-beige ring-2 ring-offset-2 ring-nature-green border-transparent' 
-              : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
-            }`}
+            className={`px-6 py-3 rounded-xl font-bold flex-1 transition-all shadow-sm ${activeTab === 'map'
+                ? 'bg-nature-darkGreen text-nature-beige ring-2 ring-offset-2 ring-nature-green border-transparent'
+                : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+              }`}
           >
             Карта озеленения Бишкека
           </button>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
-          
+
           {/* Conditional Rendering for List Tab */}
           {activeTab === 'list' && (
             <div className="lg:col-span-2">
